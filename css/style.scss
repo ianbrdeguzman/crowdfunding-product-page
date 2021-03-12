@@ -277,6 +277,7 @@ main {
                     }
                 }
                 .modal-pledge-item.active {
+                    border: 1px solid $moderate-cyan;
                     .modal-pledge-footer {
                         display: flex;
                     }

@@ -389,6 +389,10 @@ main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledg
   padding: 1rem 1.5rem;
 }
 
+main .modal-container .modal-content .modal-main .modal-pledge-item.active {
+  border: 1px solid #3cb4ac;
+}
+
 main .modal-container .modal-content .modal-main .modal-pledge-item.active .modal-pledge-footer {
   display: -webkit-box;
   display: -ms-flexbox;
