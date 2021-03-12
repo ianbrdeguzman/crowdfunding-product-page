@@ -1,6 +1,6 @@
 # Frontend Mentor - Crowdfunding product page
 
-Check it out [!here](https://ianbrdeguzman.github.io/crowdfunding-product-page/)
+Check it out [here!](https://ianbrdeguzman.github.io/crowdfunding-product-page/)
 
 ## Created using:
 
