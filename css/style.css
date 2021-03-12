@@ -9,6 +9,7 @@
 }
 
 body {
+  overflow-x: hidden;
   font-family: 'Commissioner', sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -31,19 +32,19 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 2;
 }
 
 header h1 {
   font-weight: 700;
-  z-index: 3;
+  z-index: 2;
 }
 
 header button {
   background-color: transparent;
   border: none;
   outline: none;
-  z-index: 3;
+  z-index: 2;
 }
 
 header .menu-container {
@@ -68,7 +69,6 @@ header .menu-container ul {
   border-radius: 0.5rem;
   position: fixed;
   top: 6rem;
-  z-index: 3;
 }
 
 header .menu-container ul li {
@@ -88,15 +88,19 @@ header .menu-container.active {
   display: flex;
 }
 
-.hero-image-container {
+.hero-image-mobile {
   width: 100vw;
   z-index: -1;
   position: absolute;
   top: 0;
 }
 
-.hero-image-container img {
+.hero-image-mobile img {
   width: 100%;
+}
+
+.hero-image-desktop {
+  display: none;
 }
 
 main {
@@ -153,22 +157,11 @@ main .intro-container .intro-btn-container {
 }
 
 main .intro-container .intro-btn-container #modal-button {
-  color: white;
-  font-family: inherit;
   font-size: 1rem;
-  font-weight: 500;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
   margin-right: 1rem;
-  background-color: #3cb4ac;
-  border: none;
-  outline: none;
-  border-radius: 3rem;
-}
-
-main .intro-container .intro-btn-container #modal-button:hover {
-  background-color: #147b74;
 }
 
 main .intro-container .intro-btn-container #bookmark {
@@ -192,7 +185,7 @@ main .modal-container {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
 }
 
 main .modal-container .modal-content {
@@ -343,11 +336,67 @@ main .modal-container .modal-content .modal-main .modal-pledge-item label div di
 
 main .modal-container .modal-content .modal-main .modal-pledge-item label div div p:last-child {
   margin: 0 0 0 2rem;
+  color: #3cb4ac;
 }
 
 main .modal-container .modal-content .modal-main .modal-pledge-item label .pledge-item-info {
   color: #7a7a7a;
   margin: 3rem 0 0 0;
+}
+
+main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledge-footer {
+  width: 100%;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledge-footer div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledge-footer div p {
+  text-align: center;
+  padding: 0.85rem;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-right: 0.5rem;
+  border-radius: 3rem;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledge-footer div p span {
+  font-weight: 700;
+  color: black;
+}
+
+main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledge-footer div button {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-left: 0.5rem;
+}
+
+main .modal-container .modal-content .modal-main .modal-pledge-item.active .modal-pledge-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 main .modal-container.active {
@@ -378,22 +427,18 @@ main .stats-container {
           align-items: center;
 }
 
-main .stats-container > div {
+main .stats-container > div > div {
   padding: 1rem 0;
+  width: 150px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-main .stats-container > div h1 {
+main .stats-container > div > div h1 {
   font-size: 2rem;
 }
 
-main .stats-container > div p {
+main .stats-container > div > div p {
   color: #7a7a7a;
-}
-
-main .stats-container .dividers {
-  width: 100px;
-  padding: 0;
-  border-top: 1px solid #7a7a7a;
 }
 
 main .stats-container .progress-container {
@@ -402,16 +447,17 @@ main .stats-container .progress-container {
   padding: 0;
   margin: 1rem 0;
   background-color: #fafafa;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 3rem;
-  overflow: hidden;
   position: relative;
-  z-index: 1;
 }
 
 main .stats-container .progress-bar {
   width: 80%;
   height: 15px;
+  padding: 0;
   background-color: #3cb4ac;
   border-radius: 3rem;
   z-index: 1;
@@ -424,6 +470,7 @@ main .about-container {
   width: 90vw;
   max-width: 730px;
   padding: 2rem 1rem 1rem 1rem;
+  margin-bottom: 2rem;
   background-color: white;
   border-radius: 0.5rem;
   -webkit-box-shadow: 0 0 1px 0 #7a7a7a;
@@ -473,22 +520,86 @@ main .about-container .pledge-container .pledge .left-amount span {
 
 main .about-container .pledge-container .pledge button {
   margin: 1.5rem 0 0 0;
-  padding: 1rem 2rem;
+}
+
+main .about-container .pledge-container .pledge.out-of-stock {
+  opacity: 0.5;
+}
+
+main .success-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+main .success-container .success-content {
+  width: 90vw;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .success-container .success-content .img-container {
+  margin: 1rem 0 0 0;
+}
+
+main .success-container .success-content h3 {
+  margin: 1rem 0;
+}
+
+main .success-container .success-content p {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #7a7a7a;
+}
+
+main .success-container .success-content button {
+  margin: 1rem 0;
+}
+
+main .success-container.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.btn {
   font-family: inherit;
   font-weight: 500;
+  font-size: 1rem;
   color: white;
+  padding: 1rem 2rem;
   background-color: #3cb4ac;
   border-radius: 3rem;
   border: none;
   outline: none;
 }
 
-main .about-container .pledge-container .pledge button:hover {
+.btn:hover {
   background-color: #147b74;
-}
-
-main .about-container .pledge-container .pledge.out-of-stock {
-  opacity: 0.5;
 }
 
 .attribution {
