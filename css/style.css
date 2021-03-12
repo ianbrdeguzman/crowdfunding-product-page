@@ -131,7 +131,7 @@ main .intro-container {
   position: relative;
 }
 
-main .intro-container #logo {
+main .intro-container a {
   position: absolute;
   top: 0;
   left: 50%;
