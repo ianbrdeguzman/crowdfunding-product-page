@@ -54,7 +54,7 @@ class Menu {
         const position = document.getElementById(element).offsetTop;
 
         window.scrollTo({
-            top: position - 100,
+            top: position - 110,
             left: 0,
             behavior: 'smooth',
         });

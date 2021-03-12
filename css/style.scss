@@ -96,14 +96,11 @@ main {
     justify-content: center;
     align-items: center;
     .intro-container {
-        width: 90vw;
-        max-width: 730px;
         margin-bottom: 1rem;
         padding: 3rem 1rem 2rem 1rem;
         text-align: center;
         background-color: $white;
         box-shadow: 0 0 1px 0 $dark-grey;
-        border-radius: 0.5rem;
         position: relative;
         #logo {
             position: absolute;
@@ -124,6 +121,7 @@ main {
                 margin-right: 1rem;
             }
             #bookmark {
+                cursor: pointer;
                 background-color: transparent;
                 border: none;
                 outline: none;
@@ -132,7 +130,7 @@ main {
     }
     .modal-container {
         width: 100vw;
-        height: 380vh;
+        height: 390vh;
         background-color: $background-color;
         display: none;
         flex-direction: column;
@@ -142,7 +140,6 @@ main {
         left: 0;
         z-index: 3;
         .modal-content {
-            width: 90vw;
             margin-top: 8rem;
             padding: 1rem;
             border-radius: 0.5rem;
@@ -156,6 +153,7 @@ main {
                     font-weight: 700;
                 }
                 button {
+                    cursor: pointer;
                     background-color: transparent;
                     border: none;
                     outline: none;
@@ -173,6 +171,7 @@ main {
                     border-radius: 0.5rem;
                     border: 1px solid $shadow-color;
                     label {
+                        cursor: pointer;
                         margin: 1rem 0;
                         display: flex;
                         flex-direction: column;
@@ -250,7 +249,6 @@ main {
                         }
                     }
                     .modal-pledge-footer {
-                        width: 100%;
                         display: none;
                         flex-direction: column;
                         align-items: center;
@@ -272,8 +270,8 @@ main {
                                 }
                             }
                             button {
-                                flex-grow: 1;
                                 margin-left: 0.5rem;
+                                padding: 1rem 1.5rem;
                             }
                         }
                     }
@@ -290,18 +288,15 @@ main {
         display: flex;
     }
     .stats-container {
-        width: 90vw;
-        max-width: 730px;
         padding: 1rem;
         margin: 1rem 0 2rem 0;
         background-color: $white;
-        border-radius: 0.5rem;
         box-shadow: 0 0 1px 0 $dark-grey;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
-        & > div > div {
+        .stats-content > div {
             padding: 1rem 0;
             width: 150px;
             border-bottom: 1px solid $shadow-color;
@@ -311,6 +306,9 @@ main {
             p {
                 color: $dark-grey;
             }
+        }
+        .stats-content > div:last-child {
+            border: unset;
         }
         .progress-container {
             width: 100%;
@@ -324,7 +322,6 @@ main {
             position: relative;
         }
         .progress-bar {
-            width: 80%;
             height: 15px;
             padding: 0;
             background-color: $moderate-cyan;
@@ -336,12 +333,9 @@ main {
         }
     }
     .about-container {
-        width: 90vw;
-        max-width: 730px;
         padding: 2rem 1rem 1rem 1rem;
         margin-bottom: 2rem;
         background-color: $white;
-        border-radius: 0.5rem;
         box-shadow: 0 0 1px 0 $dark-grey;
         h3 {
             margin-bottom: 1rem;
@@ -377,9 +371,6 @@ main {
                     margin: 1.5rem 0 0 0;
                 }
             }
-            .pledge.out-of-stock {
-                opacity: 0.5;
-            }
         }
     }
     .success-container {
@@ -395,7 +386,8 @@ main {
         z-index: 2;
         .success-content {
             width: 90vw;
-            padding: 1rem;
+            max-width: 540px;
+            padding: 2rem;
             background-color: $white;
             border-radius: 0.5rem;
             text-align: center;
@@ -423,7 +415,13 @@ main {
         display: flex;
     }
 }
+.ctn {
+    width: 90vw;
+    max-width: 730px;
+    border-radius: 0.5rem;
+}
 .btn {
+    cursor: pointer;
     font-family: inherit;
     font-weight: 500;
     font-size: 1rem;
@@ -437,7 +435,6 @@ main {
         background-color: $dark-cyan;
     }
 }
-
 .attribution {
     font-size: 11px;
     text-align: center;
@@ -445,7 +442,190 @@ main {
         color: hsl(228, 45%, 44%);
     }
 }
-
 @media (min-width: 768px) {
-    // TODO
+    header {
+        padding: 1rem 5rem;
+        button {
+            display: none;
+        }
+        .menu-container {
+            width: unset;
+            height: unset;
+            background-color: transparent;
+            display: unset;
+            position: unset;
+            ul {
+                width: 100%;
+                font-weight: 400;
+                font-size: 1rem;
+                list-style: none;
+                background-color: transparent;
+                border-radius: unset;
+                position: unset;
+                display: flex;
+                li {
+                    padding-left: 1rem;
+                    box-shadow: unset;
+                    a {
+                        color: $white;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    .hero-image-mobile {
+        display: none;
+    }
+    .hero-image-desktop {
+        width: 100vw;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        display: unset;
+        img {
+            width: 100%;
+        }
+    }
+    main {
+        margin-top: 20rem;
+        .intro-container {
+            padding: 3rem;
+            p {
+                margin: 1rem 0 2rem 0;
+            }
+            .intro-btn-container {
+                display: flex;
+                justify-content: space-between;
+                #modal-button {
+                    flex-grow: unset;
+                }
+                #bookmark {
+                    margin-right: 8rem;
+                    position: relative;
+                }
+                #bookmark::before {
+                    content: 'Bookmark';
+                    font-family: 'Commissioner', sans-serif;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    margin-left: 5rem;
+                    color: $dark-grey;
+                    position: absolute;
+                    top: 45%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                #bookmark::after {
+                    content: '';
+                    display: block;
+                    width: 180px;
+                    height: 55px;
+                    border-radius: 3rem;
+                    background-color: $black;
+                    opacity: 0.1;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+        .modal-container {
+            height: 230vh;
+            .modal-content {
+                padding: 2rem 3rem;
+                .modal-main {
+                    margin: 1rem 0;
+                    p {
+                        margin: 1rem 0 2rem 0;
+                    }
+                    .modal-pledge-item {
+                        position: relative;
+                        label {
+                            .modal-pledge-header {
+                                div {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    .no-reward {
+                                        color: $black;
+                                    }
+                                }
+                            }
+                        }
+                        h1 {
+                            position: absolute;
+                            top: 1.5rem;
+                            right: 2rem;
+                        }
+                        .modal-pledge-footer {
+                            border-top: 1px solid $shadow-color;
+                            display: none;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            padding: 1rem 0;
+                            margin: 0;
+                            p {
+                                margin: 0;
+                                width: 130px;
+                            }
+                            div {
+                                width: auto;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .stats-container {
+            padding: 2rem 3rem;
+            text-align: left;
+            .stats-content {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+            }
+            .stats-content > div {
+                padding: 0;
+                margin: 1rem 2rem 1rem 0;
+                flex-grow: 1;
+                border-bottom: unset;
+                border-right: 1px solid $shadow-color;
+            }
+            .stats-content > div:last-child {
+                border-right: none;
+            }
+        }
+        .about-container {
+            padding: 3rem 3rem 2rem 3rem;
+            line-height: 2;
+            margin-bottom: 2rem;
+            .pledge-container {
+                margin: 2rem 0 0 0;
+                .pledge {
+                    padding: 2rem;
+                    .pledge-header {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    .pledge-footer {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        button {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .success-container {
+            .success-content {
+                max-width: 540px;
+            }
+        }
+    }
 }

@@ -122,15 +122,12 @@ main {
 }
 
 main .intro-container {
-  width: 90vw;
-  max-width: 730px;
   margin-bottom: 1rem;
   padding: 3rem 1rem 2rem 1rem;
   text-align: center;
   background-color: white;
   -webkit-box-shadow: 0 0 1px 0 #7a7a7a;
           box-shadow: 0 0 1px 0 #7a7a7a;
-  border-radius: 0.5rem;
   position: relative;
 }
 
@@ -165,6 +162,7 @@ main .intro-container .intro-btn-container #modal-button {
 }
 
 main .intro-container .intro-btn-container #bookmark {
+  cursor: pointer;
   background-color: transparent;
   border: none;
   outline: none;
@@ -172,7 +170,7 @@ main .intro-container .intro-btn-container #bookmark {
 
 main .modal-container {
   width: 100vw;
-  height: 380vh;
+  height: 390vh;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
   -webkit-box-orient: vertical;
@@ -189,7 +187,6 @@ main .modal-container {
 }
 
 main .modal-container .modal-content {
-  width: 90vw;
   margin-top: 8rem;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -214,6 +211,7 @@ main .modal-container .modal-content .modal-header h3 {
 }
 
 main .modal-container .modal-content .modal-header button {
+  cursor: pointer;
   background-color: transparent;
   border: none;
   outline: none;
@@ -236,6 +234,7 @@ main .modal-container .modal-content .modal-main .modal-pledge-item {
 }
 
 main .modal-container .modal-content .modal-main .modal-pledge-item label {
+  cursor: pointer;
   margin: 1rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -345,7 +344,6 @@ main .modal-container .modal-content .modal-main .modal-pledge-item label .pledg
 }
 
 main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledge-footer {
-  width: 100%;
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -387,10 +385,8 @@ main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledg
 }
 
 main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledge-footer div button {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
   margin-left: 0.5rem;
+  padding: 1rem 1.5rem;
 }
 
 main .modal-container .modal-content .modal-main .modal-pledge-item.active .modal-pledge-footer {
@@ -406,12 +402,9 @@ main .modal-container.active {
 }
 
 main .stats-container {
-  width: 90vw;
-  max-width: 730px;
   padding: 1rem;
   margin: 1rem 0 2rem 0;
   background-color: white;
-  border-radius: 0.5rem;
   -webkit-box-shadow: 0 0 1px 0 #7a7a7a;
           box-shadow: 0 0 1px 0 #7a7a7a;
   text-align: center;
@@ -427,18 +420,22 @@ main .stats-container {
           align-items: center;
 }
 
-main .stats-container > div > div {
+main .stats-container .stats-content > div {
   padding: 1rem 0;
   width: 150px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-main .stats-container > div > div h1 {
+main .stats-container .stats-content > div h1 {
   font-size: 2rem;
 }
 
-main .stats-container > div > div p {
+main .stats-container .stats-content > div p {
   color: #7a7a7a;
+}
+
+main .stats-container .stats-content > div:last-child {
+  border: unset;
 }
 
 main .stats-container .progress-container {
@@ -455,7 +452,6 @@ main .stats-container .progress-container {
 }
 
 main .stats-container .progress-bar {
-  width: 80%;
   height: 15px;
   padding: 0;
   background-color: #3cb4ac;
@@ -467,12 +463,9 @@ main .stats-container .progress-bar {
 }
 
 main .about-container {
-  width: 90vw;
-  max-width: 730px;
   padding: 2rem 1rem 1rem 1rem;
   margin-bottom: 2rem;
   background-color: white;
-  border-radius: 0.5rem;
   -webkit-box-shadow: 0 0 1px 0 #7a7a7a;
           box-shadow: 0 0 1px 0 #7a7a7a;
 }
@@ -522,10 +515,6 @@ main .about-container .pledge-container .pledge button {
   margin: 1.5rem 0 0 0;
 }
 
-main .about-container .pledge-container .pledge.out-of-stock {
-  opacity: 0.5;
-}
-
 main .success-container {
   width: 100vw;
   height: 100vh;
@@ -545,7 +534,8 @@ main .success-container {
 
 main .success-container .success-content {
   width: 90vw;
-  padding: 1rem;
+  max-width: 540px;
+  padding: 2rem;
   background-color: white;
   border-radius: 0.5rem;
   text-align: center;
@@ -586,7 +576,14 @@ main .success-container.active {
   display: flex;
 }
 
+.ctn {
+  width: 90vw;
+  max-width: 730px;
+  border-radius: 0.5rem;
+}
+
 .btn {
+  cursor: pointer;
   font-family: inherit;
   font-weight: 500;
   font-size: 1rem;
@@ -609,5 +606,232 @@ main .success-container.active {
 
 .attribution a {
   color: #3e52a3;
+}
+
+@media (min-width: 768px) {
+  header {
+    padding: 1rem 5rem;
+  }
+  header button {
+    display: none;
+  }
+  header .menu-container {
+    width: unset;
+    height: unset;
+    background-color: transparent;
+    display: unset;
+    position: unset;
+  }
+  header .menu-container ul {
+    width: 100%;
+    font-weight: 400;
+    font-size: 1rem;
+    list-style: none;
+    background-color: transparent;
+    border-radius: unset;
+    position: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  header .menu-container ul li {
+    padding-left: 1rem;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+  }
+  header .menu-container ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  .hero-image-mobile {
+    display: none;
+  }
+  .hero-image-desktop {
+    width: 100vw;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    display: unset;
+  }
+  .hero-image-desktop img {
+    width: 100%;
+  }
+  main {
+    margin-top: 20rem;
+  }
+  main .intro-container {
+    padding: 3rem;
+  }
+  main .intro-container p {
+    margin: 1rem 0 2rem 0;
+  }
+  main .intro-container .intro-btn-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  main .intro-container .intro-btn-container #modal-button {
+    -webkit-box-flex: unset;
+        -ms-flex-positive: unset;
+            flex-grow: unset;
+  }
+  main .intro-container .intro-btn-container #bookmark {
+    margin-right: 8rem;
+    position: relative;
+  }
+  main .intro-container .intro-btn-container #bookmark::before {
+    content: 'Bookmark';
+    font-family: 'Commissioner', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-left: 5rem;
+    color: #7a7a7a;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  main .intro-container .intro-btn-container #bookmark::after {
+    content: '';
+    display: block;
+    width: 180px;
+    height: 55px;
+    border-radius: 3rem;
+    background-color: black;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  main .modal-container {
+    height: 230vh;
+  }
+  main .modal-container .modal-content {
+    padding: 2rem 3rem;
+  }
+  main .modal-container .modal-content .modal-main {
+    margin: 1rem 0;
+  }
+  main .modal-container .modal-content .modal-main p {
+    margin: 1rem 0 2rem 0;
+  }
+  main .modal-container .modal-content .modal-main .modal-pledge-item {
+    position: relative;
+  }
+  main .modal-container .modal-content .modal-main .modal-pledge-item label .modal-pledge-header div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  main .modal-container .modal-content .modal-main .modal-pledge-item label .modal-pledge-header div .no-reward {
+    color: black;
+  }
+  main .modal-container .modal-content .modal-main .modal-pledge-item h1 {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+  }
+  main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledge-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: none;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 1rem 0;
+    margin: 0;
+  }
+  main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledge-footer p {
+    margin: 0;
+    width: 130px;
+  }
+  main .modal-container .modal-content .modal-main .modal-pledge-item .modal-pledge-footer div {
+    width: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main .stats-container {
+    padding: 2rem 3rem;
+    text-align: left;
+  }
+  main .stats-container .stats-content {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  main .stats-container .stats-content > div {
+    padding: 0;
+    margin: 1rem 2rem 1rem 0;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    border-bottom: unset;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  main .stats-container .stats-content > div:last-child {
+    border-right: none;
+  }
+  main .about-container {
+    padding: 3rem 3rem 2rem 3rem;
+    line-height: 2;
+    margin-bottom: 2rem;
+  }
+  main .about-container .pledge-container {
+    margin: 2rem 0 0 0;
+  }
+  main .about-container .pledge-container .pledge {
+    padding: 2rem;
+  }
+  main .about-container .pledge-container .pledge .pledge-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  main .about-container .pledge-container .pledge .pledge-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main .about-container .pledge-container .pledge .pledge-footer button {
+    margin: 0;
+  }
+  main .success-container .success-content {
+    max-width: 540px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

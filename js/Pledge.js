@@ -14,11 +14,15 @@ class Pledge {
             const container = document.querySelector('.pledge-container');
             const html = `
                 <div class="pledge ${id}" data-id="${id}">
-                    <h4>${title}</h4>
-                    <p class="pledge-amount">${textOne}</p>
+                    <div class="pledge-header">
+                        <h4>${title}</h4>
+                        <p class="pledge-amount">${textOne}</p>
+                    </div>
                     <p class="pledge-info">${textTwo}</p>
-                    <h1 class="left-amount ${id}">${amount} <span>left</span></h1>
-                    <button data-id="${id}" class="btn pledge-button">Select Reward</button>
+                    <div class="pledge-footer">
+                        <h1 class="left-amount ${id}">${amount} <span>left</span></h1>
+                        <button data-id="${id}" class="btn pledge-button">Select Reward</button>
+                    </div>
                 </div>
             `;
             container.insertAdjacentHTML('beforeend', html);

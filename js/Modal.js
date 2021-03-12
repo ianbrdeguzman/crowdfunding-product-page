@@ -36,7 +36,7 @@ class Modal {
             const html = `
                             <div class="modal-pledge-item" data-id="${id}">
                                 <label>
-                                    <div>
+                                    <div class="modal-pledge-header">
                                         <input
                                             type="radio"
                                             name="pledge"
@@ -86,18 +86,18 @@ class Modal {
     bookmarkUpdate() {
         const bookmarkBtn = document.querySelector('#bookmark');
         if (localStorage.getItem('booked')) {
-            bookmarkBtn.setAttribute('class', 'book');
+            bookmarkBtn.setAttribute('class', 'booked');
             bookmarkBtn.firstElementChild.src =
                 './images/icon-bookmark-booked.svg';
         }
         bookmarkBtn.addEventListener('click', () => {
-            if (!bookmarkBtn.classList.contains('book')) {
-                bookmarkBtn.setAttribute('class', 'book');
+            if (!bookmarkBtn.classList.contains('booked')) {
+                bookmarkBtn.setAttribute('class', 'booked');
                 bookmarkBtn.firstElementChild.src =
                     './images/icon-bookmark-booked.svg';
                 localStorage.setItem('booked', 'true');
             } else {
-                bookmarkBtn.removeAttribute('class', 'book');
+                bookmarkBtn.removeAttribute('class', 'booked');
                 bookmarkBtn.firstElementChild.src =
                     './images/icon-bookmark.svg';
                 localStorage.removeItem('booked');
@@ -113,14 +113,16 @@ class Modal {
     continueButtonUpdate() {
         const stat = new Stat();
         const pledge = new Pledge();
-        const pledgeDOMModal = document.querySelectorAll('.modal-pledge-item');
-        const pledgeDOMMain = [...document.querySelectorAll('.pledge')];
+        const pledgesModal = document.querySelectorAll('.modal-pledge-item');
+        const pledgesMain = [...document.querySelectorAll('.pledge')];
         const buttons = document.querySelectorAll('.continue');
         buttons.forEach((button) => {
             button.addEventListener('click', () => {
                 this.modalContainer.classList.toggle('active');
                 this.successContainer.classList.add('active');
-                pledgeDOMModal.forEach((pledgeDOM) => {
+                const div = button.parentNode.parentNode.parentNode;
+                const input = div.childNodes[1].childNodes[1].childNodes[1];
+                pledgesModal.forEach((pledgeDOM) => {
                     if (pledgeDOM.dataset.id == button.dataset.id) {
                         pledges.forEach((item) => {
                             if (item.value == 0) return;
@@ -133,30 +135,29 @@ class Modal {
                                     item.amount,
                                     pledgeDOM.dataset.id
                                 );
-                            }
-                            if (item.amount == 0) {
-                                const div =
-                                    button.parentNode.parentNode.parentNode;
-                                const input =
-                                    div.childNodes[1].childNodes[1]
-                                        .childNodes[1];
-
-                                div.style.opacity = '0.5';
                                 div.classList.remove('active');
-                                input.disabled = true;
                                 input.checked = false;
-                                button.disabled = true;
+                                if (item.amount == 0) {
+                                    div.style.opacity = '0.5';
+                                    div.classList.remove('active');
+                                    input.disabled = true;
+                                    input.checked = false;
+                                    button.disabled = true;
 
-                                pledgeDOMMain.forEach((element) => {
-                                    if (
-                                        element.dataset.id ===
-                                        pledgeDOM.dataset.id
-                                    ) {
-                                        element.style.opacity = '0.5';
-                                    }
-                                });
+                                    pledgesMain.forEach((element) => {
+                                        if (
+                                            element.dataset.id ===
+                                            pledgeDOM.dataset.id
+                                        ) {
+                                            element.style.opacity = '0.5';
+                                        }
+                                    });
+                                }
                             }
                         });
+                    } else {
+                        div.classList.remove('active');
+                        input.checked = false;
                     }
                 });
             });

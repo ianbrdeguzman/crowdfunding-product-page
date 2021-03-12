@@ -3,7 +3,7 @@ export const pledges = [
         id: 'bamboo',
         title: 'Bamboo Stand',
         textOne: 'Pledge $25 or more',
-        textTwo: `You get an ergonomic stand made of natural bamboo.You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.`,
+        textTwo: `You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.`,
         amount: 101,
         value: 25,
     },
