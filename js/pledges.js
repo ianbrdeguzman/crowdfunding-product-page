@@ -1,5 +1,13 @@
 export const pledges = [
     {
+        id: 'none',
+        title: 'Pledge with no reward',
+        textOne: undefined,
+        textTwo: `Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.`,
+        amount: undefined,
+        value: 0,
+    },
+    {
         id: 'bamboo',
         title: 'Bamboo Stand',
         textOne: 'Pledge $25 or more',

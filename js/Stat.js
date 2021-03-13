@@ -16,7 +16,6 @@ class Stat {
     }
     progressUpdate() {
         const progressBar = document.querySelector('.progress-bar');
-        // progressBar.style.width = Math.floor(stats.amount / 1000);
         progressBar.style.width = `${Math.floor(stats.amount / 1000)}%`;
     }
 }
